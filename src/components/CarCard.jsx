@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const CarCard = ({ car }) => {
  
-  const { Name, imageUrl, dailyPrice, pickupLocation, Type, _id } = car;
+  const { carName, imageUrl, dailyPrice, pickupLocation, Type, _id } = car;
 
   return (
     <div className="group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full">
@@ -15,7 +15,7 @@ const CarCard = ({ car }) => {
       <div className="relative h-64 overflow-hidden">
         <Image
           className="object-cover group-hover:scale-110 transition-transform duration-700"
-          alt={Name}
+          alt={carName}
           src={imageUrl}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -31,7 +31,7 @@ const CarCard = ({ car }) => {
         <div className="flex justify-between items-start mb-4">
           <div className="flex-1">
             <h2 className="text-xl font-extrabold text-gray-800 line-clamp-1 group-hover:text-cyan-600 transition-colors">
-              {Name}
+              {carName}
             </h2>
             <div className="flex items-center gap-1.5 text-gray-500 mt-1">
               <LuMapPin className="text-cyan-500" size={16} />

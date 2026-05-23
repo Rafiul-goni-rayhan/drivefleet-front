@@ -22,14 +22,14 @@ const AddCarPage = () => {
     carData.seatCapacity = Number(carData.seatCapacity);
 
     try {
-      const res = await fetch('http://localhost:5000/car', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/car`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(carData)
       });
       const data = await res.json();
       if(data.insertedId) {
-          alert("🚀 Car added successfully!");
+           toast.success("🚀 Car added successfully!");
           e.target.reset(); 
       }
     } catch (error) {
