@@ -11,6 +11,7 @@ import {
   Card,
 } from "@heroui/react";
 import React from 'react';
+import toast from "react-hot-toast";
 
 const AddCarPage = () => {
   const onSubmit = async (e) => {
