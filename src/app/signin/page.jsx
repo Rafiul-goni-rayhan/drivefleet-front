@@ -34,7 +34,7 @@ export default function SignInPage() {
 
       
       if (error) {
-        // শুধু error না লিখে error.message বা পুরো অবজেক্টটি ডিটেইলস সহ দেখুন
+        // শুধু error না লিখে error.message বা পুরো অবজেক্টটি ডিটেইলস 
         console.error("Full Error Context:", error);
          toast.error(error.message || "Login failed. Please check your credentials.");
         return;
