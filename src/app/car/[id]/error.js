@@ -17,7 +17,7 @@ const ErrorPage = ({ error, reset }) => {
                     </svg>
                 </div>
 
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">something went erong!</h1>
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">something went wrong!</h1>
                 
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -32,7 +32,6 @@ const ErrorPage = ({ error, reset }) => {
                    
                 </div>
                 
-                {/* Error details (ঐচ্ছিক - শুধু ডেভেলপমেন্টের জন্য রাখতে পারেন) */}
                 {error?.message && (
                     <p className="mt-6 text-xs text-red-400 font-mono bg-red-50 p-2 rounded">
                         Error: {error.message}
