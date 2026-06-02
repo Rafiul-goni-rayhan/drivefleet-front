@@ -70,7 +70,7 @@ const Navbar = () => {
                 href="/car"
                 className="px-4 py-2 rounded-full hover:bg-blue-50 hover:text-blue-600 transition"
               >
-                Cars
+                My Added Cars
               </Link>
             </li>
 
@@ -177,7 +177,7 @@ const Navbar = () => {
                   onClick={() => setMenuOpen(false)}
                   className="block p-2 rounded hover:bg-gray-100"
                 >
-                  Cars
+                  My Added Cars
                 </Link>
               </li>
 
