@@ -2,7 +2,7 @@ import React from 'react';
 import CarCard from './CarCard'; 
 
 const AvailableCars = async () => {
-    // ডাটাবেজ থেকে ডাটা নিয়ে আসা
+    //fetch data from database 
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/car`, {
        
     });
