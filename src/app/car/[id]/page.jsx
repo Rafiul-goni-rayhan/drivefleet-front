@@ -67,8 +67,8 @@ const CarDetailesPage = async ({ params }) => {
                   className={`backdrop-blur-md font-bold text-white border-none ${car.availabilityStatus === "Available" ? "bg-green-500/80" : "bg-red-500/80"}`}
                 >
                   {car.availabilityStatus === "Available"
-                    ? "● Available"
-                    : "● Booked"}
+                    ? " Available"
+                    : " Booked"}
                 </Chip>
                 <Chip
                   variant="flat"
@@ -133,32 +133,10 @@ const CarDetailesPage = async ({ params }) => {
                 </p>
               </div>
 
-              {/* Price & Action Section */}
-              {/* <div className="mt-auto flex flex-col sm:flex-row items-center justify-between gap-6 p-6 bg-gray-900 rounded-3xl shadow-lg">
-                <div className="text-center sm:text-left">
-                  <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-1">
-                    Price Per Day
-                  </p>
-                  <div className="flex items-center text-white">
-                    <FaDollarSign className="text-cyan-400" />
-                    <span className="text-4xl font-black tracking-tighter">
-                      {car.dailyPrice}
-                    </span>
-                    <span className="text-gray-400 font-medium ml-1">/day</span>
-                  </div>
-                </div>
-                <Button
-                  size="lg"
-                  className="w-full sm:w-auto bg-cyan-500 hover:bg-cyan-400 text-white font-black rounded-2xl px-12 h-14 shadow-lg shadow-cyan-500/20"
-                >
-                  Book Now
-                </Button>
-              </div> */}
+              
 
               <div className="mt-6">
-                {/* <Button variant="light" startContent={<LuSettings />} className="text-gray-400 hover:text-gray-900 font-semibold">
-                    Listing Settings
-                </Button> */}
+             
                 <BookingCard car={car} />
               </div>
             </div>
