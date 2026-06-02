@@ -17,7 +17,7 @@ const ErrorPage = ({ error, reset }) => {
                     </svg>
                 </div>
 
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">কিছু একটা ভুল হয়েছে!</h1>
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">something went erong!</h1>
                 
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
