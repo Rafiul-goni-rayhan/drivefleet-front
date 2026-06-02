@@ -1,21 +1,24 @@
 "use client";
 
 import { Button, Card } from "@heroui/react";
-import React from "react";
+import React, { useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 import { FaDollarSign } from "react-icons/fa6";
-
 const BookingCard = ({ car }) => {
   const { data: session } = authClient.useSession();
   const user = session?.user;
+  const [bookingDate, setBookingDate] = useState();
 
   if (!car) return null;
 
   const { carName, imageUrl, dailyPrice, pickupLocation, carType, _id } = car;
 
   const handleBooking = async () => {
- 
+    if (!bookingDate) {
+      toast.error("Please select a booking date!");
+      return;
+    }
     if (!user) {
       toast.error("Please login first to book a car!");
       return;
@@ -31,6 +34,7 @@ const BookingCard = ({ car }) => {
       imageUrl: imageUrl,
       pickupLocation: pickupLocation,
       carType: carType,
+      bookingDate,
     };
 
     try {
@@ -46,7 +50,7 @@ const BookingCard = ({ car }) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(bookingData),
       });
@@ -62,6 +66,7 @@ const BookingCard = ({ car }) => {
       }
 
       toast.success("You booked successfully!");
+      setBookingDate("");
     } catch (error) {
       console.error("Booking Error:", error);
       toast.error(error.message || "Something went wrong.");
@@ -71,9 +76,12 @@ const BookingCard = ({ car }) => {
   return (
     <Card className="rounded-xl border shadow-md mt-5 p-6 bg-white">
       <div className="mb-4">
-        <p className="text-sm text-gray-500 font-medium italic">Starting from</p>
+        <p className="text-sm text-gray-500 font-medium italic">
+          Starting from
+        </p>
         <h2 className="text-4xl font-black text-cyan-600 tracking-tight">
-          ${dailyPrice} <span className="text-sm text-gray-400 font-normal">/day</span>
+          ${dailyPrice}{" "}
+          <span className="text-sm text-gray-400 font-normal">/day</span>
         </h2>
       </div>
 
@@ -88,6 +96,19 @@ const BookingCard = ({ car }) => {
               {dailyPrice}
             </span>
           </div>
+        </div>
+        <div className="flex flex-col">
+          <label className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">
+            Booking Date
+          </label>
+
+          <input
+            type="date"
+            value={bookingDate}
+            onChange={(e) => setBookingDate(e.target.value)}
+            min={new Date().toISOString().split("T")[0]}
+            className="w-full px-3 py-3 rounded-xl bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-cyan-500"
+          />
         </div>
 
         <Button
@@ -193,7 +214,6 @@ export default BookingCard;
 //       <h2 className="text-3xl font-bold text-cyan-500">${dailyPrice}</h2>
 //       <p className="text-sm text-muted mb-4">per day</p>
 
-     
 //       <div className="mt-auto flex flex-col sm:flex-row items-center justify-between gap-6 p-6 bg-gray-900 rounded-3xl shadow-lg">
 //         <div className="text-center sm:text-left">
 //           <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-1">
@@ -215,7 +235,7 @@ export default BookingCard;
 //           Book Now
 //         </Button>
 //       </div>
-      
+
 //     </Card>
 //   );
 // };

@@ -35,13 +35,33 @@ const MyBookingPage = async () => {
   );
 
   const bookings = await res.json();
+  // total booking ar total cost calculate kora jabe ekhane
+const totalBookings = bookings.length;
+
+const totalCost = bookings.reduce((sum, booking) => {
+  return sum + Number(booking.price || 0);
+}, 0);
 
   return (
     <div className="max-w-7xl mx-auto px-5 py-10">
       <h1 className="text-4xl font-black text-cyan-500 mb-10">
         My Bookings
       </h1>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+  <div className="p-5 rounded-2xl bg-gray-900 text-white">
+    <h2 className="text-sm text-gray-400">Total Bookings</h2>
+    <p className="text-3xl font-bold text-cyan-400">
+      {totalBookings}
+    </p>
+  </div>
 
+  <div className="p-5 rounded-2xl bg-gray-900 text-white">
+    <h2 className="text-sm text-gray-400">Total Cost</h2>
+    <p className="text-3xl font-bold text-cyan-400">
+      ${totalCost}
+    </p>
+  </div>
+</div>
       {bookings.length === 0 ? (
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-500">
