@@ -118,12 +118,12 @@ export default function Footer() {
               
               <li className="flex items-center sm:items-start justify-center sm:justify-start gap-3">
                 <FaMapMarkerAlt className="text-cyan-400 mt-1 shrink-0" />
-                <span>Barishal, Bangladesh</span>
+                <span>Barishal,Bangladesh</span>
               </li>
 
               <li className="flex items-center justify-center sm:justify-start gap-3">
                 <FaPhoneAlt className="text-cyan-400 shrink-0" />
-                <span>+880 1234-567890</span>
+                <span>+880 123467890</span>
               </li>
 
               <li className="flex items-center justify-center sm:justify-start gap-3 break-all">
