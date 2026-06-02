@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const { data: session, isPending } = authClient.useSession();
@@ -30,10 +31,8 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-lg bg-white/70 border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-3">
-        
         {/* Top Navbar */}
         <div className="flex items-center justify-between">
-          
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -48,9 +47,7 @@ const Navbar = () => {
               <h1 className="text-lg md:text-xl font-extrabold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 Drivefleet
               </h1>
-              <span className="text-xs text-gray-500">
-                Premium Service
-              </span>
+              <span className="text-xs text-gray-500">Premium Service</span>
             </div>
           </Link>
 
@@ -113,20 +110,17 @@ const Navbar = () => {
                         Signup
                       </Button>
                     </Link>
+                    <div className="flex items-center gap-3">
+                      <ThemeToggle />
+                    </div>
                   </div>
                 ) : (
                   <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-2xl shadow-md">
-                    <Avatar
-                      src={user?.image || "https://i.pravatar.cc/150"}
-                    />
+                    <Avatar src={user?.image || "https://i.pravatar.cc/150"} />
 
                     <div>
-                      <p className="text-sm font-semibold">
-                        {user?.name}
-                      </p>
-                      <p className="text-xs text-gray-500">
-                        Welcome Back 👋
-                      </p>
+                      <p className="text-sm font-semibold">{user?.name}</p>
+                      <p className="text-xs text-gray-500">Welcome Back 👋</p>
                     </div>
 
                     <Button
@@ -137,6 +131,9 @@ const Navbar = () => {
                     >
                       Sign Out
                     </Button>
+                    <div className="flex items-center gap-3">
+                      <ThemeToggle />
+                    </div>
                   </div>
                 )}
               </>
@@ -144,22 +141,14 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Hamburger */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden"
-          >
-            {menuOpen ? (
-              <X size={28} />
-            ) : (
-              <Menu size={28} />
-            )}
+          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden">
+            {menuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {menuOpen && (
           <div className="md:hidden mt-4 bg-white rounded-2xl shadow-lg border p-4">
-            
             <ul className="flex flex-col gap-2">
               <li>
                 <Link
@@ -221,15 +210,11 @@ const Navbar = () => {
             ) : (
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-3">
-                  <Avatar
-                    src={user?.image || "https://i.pravatar.cc/150"}
-                  />
+                  <Avatar src={user?.image || "https://i.pravatar.cc/150"} />
 
                   <div>
                     <p className="font-semibold">{user?.name}</p>
-                    <p className="text-xs text-gray-500">
-                      Welcome Back 👋
-                    </p>
+                    <p className="text-xs text-gray-500">Welcome Back 👋</p>
                   </div>
                 </div>
 
@@ -239,6 +224,9 @@ const Navbar = () => {
                 >
                   Sign Out
                 </Button>
+                <div className="flex items-center gap-3">
+                  <ThemeToggle />
+                </div>
               </div>
             )}
           </div>
@@ -280,10 +268,10 @@ export default Navbar;
 //   return (
 //     <nav className="sticky top-0 z-50 backdrop-blur-lg bg-white/70 border-b border-gray-200 shadow-sm">
 //       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-        
+
 //         {/* Left Side */}
 //         <div className="flex items-center gap-10">
-          
+
 //           {/* Logo */}
 //           <Link href="/" className="flex items-center gap-2">
 //             <Image
@@ -350,7 +338,7 @@ export default Navbar;
 //             <>
 //               {!user ? (
 //                 <div className="flex items-center gap-3">
-                  
+
 //                   <Link href={"/signin"}>
 //                     <Button
 //                       radius="full"
@@ -372,7 +360,7 @@ export default Navbar;
 //                 </div>
 //               ) : (
 //                 <div className="flex items-center gap-4 bg-white px-4 py-2 rounded-2xl shadow-md border border-gray-100">
-                  
+
 //                   <Avatar
 //                     size="md"
 //                     // isBordered
