@@ -47,7 +47,7 @@ console.log(data);
             </AlertDialog.Header>
             <AlertDialog.Body>
               <p>
-                Are you sure you want to cancel this booking? This action cannot be undone.
+                Are you sure you want to cancel this booking?
               </p>
             </AlertDialog.Body>
             <AlertDialog.Footer>
