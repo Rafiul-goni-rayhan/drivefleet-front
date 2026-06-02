@@ -30,7 +30,7 @@ const AddCarPage = () => {
       });
       const data = await res.json();
       if(data.insertedId) {
-           toast.success("🚀 Car added successfully!");
+           toast.success(" Car added successfully!");
           e.target.reset(); 
       }
     } catch (error) {
