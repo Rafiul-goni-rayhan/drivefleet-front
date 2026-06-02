@@ -39,7 +39,7 @@ export function DeleteAlert({ car }) {
             <AlertDialog.Body>
               <p>
                 This will permanently delete <strong>{carName}</strong>{" "}
-                and all of its data. This action cannot be undone.
+                and all of its data. 
               </p>
             </AlertDialog.Body>
             <AlertDialog.Footer>
