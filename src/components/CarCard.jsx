@@ -47,7 +47,7 @@ const CarCard = ({ car }) => {
           </div>
         </div>
 
-        {/* Action Button */}
+        
         <div className="mt-auto pt-4 border-t border-gray-50">
           <Link href={`/car/${_id}`} className="w-full">
             <Button 
