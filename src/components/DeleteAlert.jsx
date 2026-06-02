@@ -15,7 +15,7 @@ export function DeleteAlert({ car }) {
       },
     //   credentials: "include"
     });
-    toast.error("Car deleted successfully!"); // Notify user of successful deletion
+    toast.error("Car deleted successfully!"); 
     const data = await res.json(); 
     console.log(data);
     redirect('/car')
