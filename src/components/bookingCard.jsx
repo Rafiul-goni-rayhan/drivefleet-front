@@ -8,7 +8,7 @@ import { FaDollarSign } from "react-icons/fa6";
 const BookingCard = ({ car }) => {
   const { data: session } = authClient.useSession();
   const user = session?.user;
-  const [bookingDate, setBookingDate] = useState();
+  const [bookingDate, setBookingDate] = useState("");
 
   if (!car) return null;
 

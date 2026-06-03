@@ -51,6 +51,7 @@ export default function SignInPage() {
     await authClient.signIn.social({
       provider: "google",
     });
+    toast.success("Redirecting to Google sign-in..."); // Notify user of redirection
   };
 
   return (

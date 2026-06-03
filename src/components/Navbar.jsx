@@ -7,6 +7,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { data: session, isPending } = authClient.useSession();
@@ -23,8 +24,10 @@ const Navbar = () => {
           },
         },
       });
+      toast.success("Signed out successfully!"); // Notify user of successful sign out
     } catch (error) {
       console.error("Sign out error:", error);
+      toast.error("Error occurred while signing out."); // Notify user of sign out error
     }
   };
 
@@ -154,7 +157,7 @@ const Navbar = () => {
                 <Link
                   href="/"
                   onClick={() => setMenuOpen(false)}
-                  className="block p-2 rounded hover:bg-gray-100"
+                  className="block p-2 rounded  bg-blue-600 hover:bg-gray-500"
                 >
                   Home
                 </Link>
@@ -164,7 +167,7 @@ const Navbar = () => {
                 <Link
                   href="/car"
                   onClick={() => setMenuOpen(false)}
-                  className="block p-2 rounded hover:bg-gray-100"
+                  className="block p-2 rounded  bg-blue-600 hover:bg-gray-500"
                 >
                   Cars
                 </Link>
@@ -174,7 +177,7 @@ const Navbar = () => {
                 <Link
                   href="/my-bookings"
                   onClick={() => setMenuOpen(false)}
-                  className="block p-2 rounded hover:bg-gray-100"
+                  className="block p-2 rounded  bg-blue-600 hover:bg-gray-500"
                 >
                   My Booking
                 </Link>
@@ -184,7 +187,7 @@ const Navbar = () => {
                 <Link
                   href="/add-car"
                   onClick={() => setMenuOpen(false)}
-                  className="block p-2 rounded bg-blue-600 text-white"
+                  className="block p-2 rounded bg-blue-600  hover:bg-gray-500"
                 >
                   Add Car
                 </Link>

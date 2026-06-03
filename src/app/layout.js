@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
 >
   <body className="min-h-full flex flex-col">
     
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
       
       <Navbar />
 

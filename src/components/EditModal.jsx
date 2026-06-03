@@ -13,6 +13,7 @@ import {
   TextField,
   Select,
 } from "@heroui/react";
+import toast from "react-hot-toast";
 import { BiEdit } from "react-icons/bi";
 
 export function EditModal({ car }) {
@@ -44,6 +45,7 @@ export function EditModal({ car }) {
     });
 
     const data = await res.json();
+    toast.success("Car updated successfully!");
     console.log(data);
   };
   return (
